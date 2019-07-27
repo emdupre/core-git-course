@@ -12,8 +12,8 @@ root: .
 > Alternatively, this course can be followed on Windows using
 > Git Bash.
 > All of the commands shown will work on Windows using Git Bash,
-> with the exception of the `gedit` command.
-> Gedit is a common text editor on Linux:
+> with the exception of the `nano` command.
+> nano is a common text editor on Linux:
 > Windows users should use the `notepad` command instead, and set
 > notepad as the core editor when configuring Git.
 >

@@ -25,34 +25,26 @@ to.
 Git and a range of functionalities supporting their use. GitHub allows users to
 set up  their private and public source code Git repositories. It provides
 tools for browsing, collaborating on and documenting code. GitHub, like other
-services such as [Launchpad](https://launchpad.net),
-[Bitbucket](https://bitbucket.org), [GoogleCode](http://code.google.com), and
-[SourceForge](http://sourceforge.net) supports a wealth of resources to support
+services such as [GitLab](https://about.gitlab.com/) and
+[Bitbucket](https://bitbucket.org),  supports a wealth of resources to support
 projects including:
 
-* Time histories changes to repositories 
-* Commit-triggered e-mails 
-* Browsing code from within a web browser, with syntax highlighting 
-* Software release management 
-* Issue (ticket) and bug tracking 
-* Download 
-* Varying permissions for various groups of users 
-* Other service hooks e.g. to Twitter.
+* Commit-triggered e-mails
+* Browsing code from within a web browser, with syntax highlighting
+* Software release management
+* Issue and bug tracking
+* Project management tools
+* Download software
+* Varying permissions for various groups of users
 
-**Note**  GitHub's free repositories have public licences **by default**. If
-you don't want to share (in the most liberal sense) your stuff with the world
-and you want to use GitHub, you will need to pay for the
-private GitHub repositories (GitHub offers up to 5 free private repositories,
-if you are an academic - but do check this information as T&C may change).
+### GitHub for research
+GitHub **isn't** the only remote repositories provider. It is however very popular,
+in particular within the Open Source communities. The reason why we teach GitHub
+in this tutorial is mainly due to popular demand.
 
-### GitHub for research 
-GitHub **isn't** the only remote repostitories provider. It is however very popular, 
-in particular within the Open Source communities. The reason why we teach GitHub 
-in this tutorial is mainly due to popular demand. 
-
-Also, GitHub has started working on [functionality which is particularily useful
+Also, GitHub has [functionality which is particularly useful
 for researchers](https://github.com/blog/1840-improving-github-for-sciences)
-such as making code citable.
+such as making code citable!
 
 ---
 
@@ -61,17 +53,17 @@ such as making code citable.
 Let's get back to our tutorial. We will first need a GitHub account.
 
 [Sign up](https://GitHub.com) or if you already have an account [sign
-in](https://GitHub.com). 
+in](https://GitHub.com).
 
 ### Create a new repository
 
 Now, we can create a repository on GitHub,
 
-* Log in to [GitHub](https://GitHub.com/) 
-* Click on the **Create** icon on the top right 
+* Log in to [GitHub](https://GitHub.com/)
+* Click on the **Create** icon on the top right
 * Enter Repository name: "papers"
-* For the purpose of this exercise we'll create a public repository 
-* Make sure that **Initialize this repository with a README** is **unselected** 
+* For the purpose of this exercise we'll create a public repository
+* Since we'll be importing a local repository, make sure that **Initialize this repository with a README** is **unselected**
 * Click **Create Repository**
 
 You'll get a page with new information about your repository. We already have
@@ -79,7 +71,7 @@ our local repository and we will be *pushing* it to GitHub, so this is the
 option we will use:
 
 ```
-$ git remote add origin https://github.com/<USERNAME>/papers.git 
+$ git remote add origin https://github.com/<USERNAME>/papers.git
 $ git push -u origin master
 ```
 {: .language-bash}
@@ -93,7 +85,7 @@ new repository on GitHub.
 Now copy and paste the second line,
 
 ```
-$ git push -u origin master 
+$ git push -u origin master
 ```
 {: .language-bash}
 ```
@@ -119,14 +111,14 @@ GitHub, we can access our repository.
 
 
 ### Push other local branches to a remote repository
-  
+
 Let's push each of our local branches into our remote repository:
 
 ```
 $ git push origin branch_name
 ```
 {: .language-bash}
-    
+
 The branch should now be created in our GitHub repository.    
 
 To list all branches (local and remote):
@@ -135,8 +127,8 @@ To list all branches (local and remote):
 $ git branch -a
 ```
 {: .language-bash}
-    
-> ## Deleting branches (for information only) 
+
+> ## Deleting branches (for information only)
 > **Don't do this now.** This is just for information.
 > To delete branches, use the following syntax:
 >
@@ -153,7 +145,7 @@ Now, let's do something drastic! (but before that step, **make sure that you
 pushed all your local branches into the remote repository**)
 
 ```
-$ cd .. 
+$ cd ..
 $ rm -rf papers
 ```
 {: .language-bash}
@@ -162,7 +154,7 @@ Gulp! We've just wiped our local repository! But, as we've a copy on GitHub we
 can just copy, or `git clone` that,
 
 ```
-$ git clone https://github.com/<USERNAME>/papers.git 
+$ git clone https://github.com/<USERNAME>/papers.git
 ```
 {: .language-bash}
 ```
@@ -175,13 +167,13 @@ Checking connectivity... done.
 ```
 {: .output}
 
-Cloning creates an exact copy of the repository. By deafult it creates
-a directory with the same name as the name of the repository. 
+Cloning creates an exact copy of the repository. By default it creates
+a directory with the same name as the name of the repository.
 
 Now, if we change into *papers* we can see that we have our repository,
 
 ```    
-$ cd papers 
+$ cd papers
 $ git log
 ```
 {: .language-bash}
@@ -207,7 +199,7 @@ make some changes to our files and commit these.
 
 ```
 $ git checkout master				# We'll continue working on the master branch
-$ gedit journal.md				# Add results section
+$ nano journal.md				# Add results section
 $ git add journal.md				# Stage changes
 $ git commit
 ```
@@ -225,7 +217,7 @@ If we now check our GitHub page we should be able to see our new changes under
 the *Commit* tab.
 
 To see all remote repositories (we can have multiple!) type:
-	
+
 ```
 $ git remote -v
 ```

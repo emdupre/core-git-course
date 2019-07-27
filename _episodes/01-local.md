@@ -20,24 +20,23 @@ keypoints:
 
 Version control is centred round the notion of a *repository* which holds your
 directories and files. We'll start by looking at a local repository. The local
-repository is set up in a directory in your local filesystem (local machine).
+repository is set up in a directory in your local file system (local machine).
 For this we will use the command line interface.
 
 > ## Why use the command line?
 > There are lots of graphical user interfaces (GUIs) for using Git: both stand-alone
 > and integrated into IDEs (e.g. MATLAB, Rstudio).
-> We are deliberately not using a GUI for this course because: 
+> We are deliberately not using a GUI for this course because:
 >
-> * you will have a better understanding of how the git comands work
-> (some functionality is often missing and/or unclear in GUIs)
+> * you will have a better understanding of how the git commands work
 > * you will be able to use Git on any computer
 > (e.g. remotely accessing HPC systems, which generally only have Linux command line access)
 > * you will be able to use any GUI, rather than just the one you have learned
 {: .callout}
 
 ## Setting up Git
-Git is already installed on the training machines, whether you're using Windows or Linux.
-Instructions for setting up Git on your own machine are given under [setup]({{ page.root }}/setup).
+Git should already be installed on your machine.
+If you still need to install git, instructions are under [setup]({{ page.root }}/setup).
 
 ## Tell Git who we are
 
@@ -60,10 +59,10 @@ tell Git which editor we want to be the default one (i.e. Git will always bring
 it up whenever it wants us to provide some information).
 
 You can choose any editor available on your system. For the purpose of this
-session we'll use *gedit*:
+session we'll use *nano*:
 
 ~~~
-$ git config --global core.editor gedit				# Linux users only.
+$ git config --global core.editor nano				# Linux users only.
 								# Windows users should use notepad: see below.
 								# Mac users should use TextEdit: see below.
 ~~~
@@ -79,8 +78,8 @@ Mac users can use *TextEdit*: `git config --global core.editor 'open -W -n'`.
 
 On many computers, the terminal output is automatically coloured which makes
 reading the output easier.
-If your output is not coloured (e.g. in the Sackville/G11 cluster) there is a command
-which will add the colour (**note the spelling of *color***):
+If your output is not colored there is a command
+which will add the color (**note the spelling of *color***):
 
 ```
 $ git config --global --add color.ui true			# Note US spelling of color
@@ -94,9 +93,9 @@ our name and the default editor which we just set up). If we look in our home
 directory, we'll see a `.gitconfig` file,
 
 ~~~
-$ cat ~/.gitconfig 
+$ cat ~/.gitconfig
     [user] name = Your Name email = yourname@yourplace.org
-    [core] editor = gedit
+    [core] editor = nano
 ~~~
 {: .language-bash}
 
@@ -110,23 +109,23 @@ i.e. the `--global` commands above are only required once per computer.
 
 We will be working with a simple example in this tutorial. It will be a paper
 that we will first start writing as a single author and then work on it further
-with one of our colleagues. 
+with one of our colleagues.
 
  First, let's create a directory within your home directory:
 
 ```
 $ cd								# Switch to your home directory.
 $ pwd								# Print working directory (output should be /home/<username>)
-$ mkdir papers 
+$ mkdir papers
 $ cd papers
-```	
+```
 {: .language-bash}
 
 Now, we need to set up this directory up to be a Git repository (or "initiate
 the repository"):
 
 ~~~
-$ git init 
+$ git init
 ~~~
 {: .language-bash}
 ~~~
@@ -134,7 +133,7 @@ Initialized empty Git repository in /home/user/papers/.git/
 ~~~
 {: .output}
 
-The directory "papers" is now our working directory. 
+The directory "papers" is now our working directory.
 
  If we look in this directory, we'll find a `.git` directory:
 
@@ -155,7 +154,7 @@ Now, we'll create a file. Let's say we're going to write a journal paper, so
 we will start by adding the author names and a title, then save the file.
 
 ~~~
-$ gedit journal.md						# Windows users: use notepad instead of gedit (throughout this course)
+$ nano journal.md						# Windows users: use notepad instead of nano (throughout this course)
 # Add author names and paper title
 ~~~
 {: .language-bash}
@@ -163,7 +162,7 @@ $ gedit journal.md						# Windows users: use notepad instead of gedit (throughou
 > ## Accessing files from the command line
 > In this lesson we create and modify text files using a command line interface
 > (e.g. terminal, Git Bash etc), mainly for convenience.
-> These are normal files which are also accessible from the file browser (e.g. Windows explorer), 
+> These are normal files which are also accessible from the file browser (e.g. Windows explorer),
 > and by other programs.
 {: .callout}
 
@@ -189,7 +188,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 {: .output}
 
 Information about what Git knows about the directory is displayed. We are on
-the `master` branch, which is the default branch in a Git respository
+the `master` branch, which is the default branch in a Git repository
 (one way to think of branches is like parallel versions of the project - more
 on branches later).
 
@@ -202,8 +201,8 @@ Git.
 To tell Git about the file, we will use the `git add` command:
 
 ~~~
-$ git add journal.md 
-$ git status 
+$ git add journal.md
+$ git status
 ~~~
 {: .language-bash}
 ~~~
@@ -218,15 +217,15 @@ Changes to be committed:
 ~~~
 {: .output}
 
-Now our file is listed underneath where it says **Changes to be committed**. 
-    
+Now our file is listed underneath where it says **Changes to be committed**.
+
 `git add` is used for two purposes. Firstly, to tell Git that a given file
 should be tracked. Secondly, to put the file into the Git **staging area**
-which is also known as the *index* or the *cache*. 
+which is also known as the *index* or the *cache*.
 
 The staging area can be viewed as a "loading dock", a place to hold files we have
 added, or changed, until we are ready to tell Git to record those changes in the
-repository. 
+repository.
 
 ![The staging area](../fig/git-staging-area.svg)
 
@@ -238,7 +237,7 @@ we need to  **commit** it:
 ~~~
 $ git commit
 # Type a commit message: "Add title and authors"
-# Save the commit message and close your text editor (gedit, notepad etc.)
+# Save the commit message and close your text editor (nano, notepad etc.)
 ~~~
 {: .language-bash}
 
@@ -250,7 +249,7 @@ why. So we need to provide this in a commit message.
 If we save our commit message **and exit the editor**, Git will now commit our file.
 
 ~~~
-[master (root-commit) 21cfbde] 
+[master (root-commit) 21cfbde]
 1 file changed, 2 insertions(+) Add title and authors
 create mode 100644 journal.md
 ~~~
@@ -272,15 +271,15 @@ nothing to commit, working directory clean
 ~~~
 {: .output}
 
-our file is now in the repository. 
+our file is now in the repository.
 The output from the `git status` command means that we have a clean directory
-i.e. no tracked but modified files. 
+i.e. no tracked but modified files.
 
 Now we will work a bit further on our *journal.md* file by writing the introduction
 section.
-   
+
 ```
-$ gedit journal.md
+$ nano journal.md
 # Write introduction section
 ```
 {: .language-bash}
@@ -292,7 +291,7 @@ $ git status
 {: .language-bash}
 
 we see changes not staged for commit section and our file is marked as
-modified: 
+modified:
 
 ~~~
 On branch master
@@ -309,16 +308,16 @@ no changes added to commit (use "git add" and/or "git commit -a")
 This means that a file Git knows about has been modified by us but
 has not yet been committed. So we can add it to the staging area and then
 commit the changes:
-     
+
 ~~~
-$ git add journal.md 
+$ git add journal.md
 $ git commit							# "Write introduction"
 ~~~
 {: .language-bash}
 Note that in this case we used `git add` to put journal.md to the staging
 area. Git already knows this file should be tracked but doesn't know if we want
 to commit the changes we made to the file  in the repository and hence we have
-to add the file to the staging area. 
+to add the file to the staging area.
 
 It can sometimes be quicker to provide our commit messages at the command-line
 by doing `git commit -m "Write introduction section"`.
@@ -327,21 +326,21 @@ Let's add a directory *common* and a file *references.txt* for references we may
 want to reuse:
 
 ~~~
-$ mkdir common 
-$ gedit common/references.txt					# Add a reference
+$ mkdir common
+$ nano common/references.txt					# Add a reference
 ~~~
 {: .language-bash}
 
 We will also add a citation in our introduction section (in journal.md).
 
 ~~~
-$ gedit journal.md 						# Use reference in introduction
+$ nano journal.md 						# Use reference in introduction
 ~~~
 {: .language-bash}
 
 Now we need to record our work in the repository so we need to make a commit.
 First we tell Git to track the references.
-We can actually tell Git to track everything in the given subdirectory:
+We can actually tell Git to track everything in the given sub-directory:
 
 ~~~
 $ git add common						# Track everything currently in the 'common' directory

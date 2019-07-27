@@ -1,7 +1,7 @@
 ---
 title: "Looking at history and differences"
 teaching: 30
-exercises: 15 (inc 10 for break)
+exercises: 5
 questions:
 - "How do I get started with Git?"
 - "Where does Git store information?"
@@ -25,7 +25,7 @@ Correct it, save the file but do not commit it yet.
 We can review the changes that we made using:
 
 ~~~
-$ gedit journal.md		# Add second reference to introduction
+$ nano journal.md		# Add second reference to introduction
 $ git diff journal.md		# View changes to file
 ~~~
 {: .language-bash}
@@ -41,22 +41,6 @@ addition of the updated line.
 Looking at differences between commits is one of the most common activities.
 The `git diff` command itself has a number of [useful
 options](http://git-scm.com/docs/git-diff.html).
-
-There is also a range of GUI-based tools for looking at differences and
-editing files. For example:
-
-* [Diffmerge](https://sourcegear.com/diffmerge/) (Free, cross-platform)
-* [WinMerge](http://winmerge.org/) - open source tool available for Windows;
-* GitHub [Compare
-view](https://help.github.com/articles/comparing-commits-across-time)
-
-Git can be configured to use graphical diff tools, and this is functionality
-is accessed using `git difftool` in place of `git diff`.
-Configuring a visual diff tool is covered on the
-[hints and tips](11-hints-and-tips.html) page.
-The choice of GUI for viewing differences depends on the context in which you
-are working and your own preferences related to choosing tools and
-technologies.
 
 Now commit the change we made by adding the second reference:
 ```
@@ -121,7 +105,7 @@ state of the repository as it was at any commit. So, let's go back to the very
 first commit we made,
 
 ~~~
-$ git log 
+$ git log
 $ git checkout INITIAL_COMMITID
 ~~~
 {: .language-bash}
@@ -139,7 +123,7 @@ If you want to create a new branch to retain commits you create, you may
 do so (now or later) by using -b with the checkout command again. Example:
 
   git checkout -b new_branch_name
-  
+
 HEAD is now at 21cfbde... Add title and authors
 ~~~
 {: .output}
@@ -185,7 +169,7 @@ a commit.
 ### The `HEAD` and `master` pointers
 
 *HEAD* is a reference, or pointer, which points to the branch at the commit where
-you currently are. 
+you currently are.
 We said previously that `master` is the default branch. But `master` is
 actually a pointer - that points to the tip of the `master` branch (the sequence
 of commits that is created by default by Git). You may think of `master` as two
@@ -195,11 +179,11 @@ things:
 2. the default branch.
 
 Before we checked out one of the past commits, the *HEAD* pointer was pointing to
-`master` i.e. the most recent commit of the `master` branch. 
+`master` i.e. the most recent commit of the `master` branch.
 After checking out one of the past commits, *HEAD* was pointing to that commit i.e.
-not pointing to master any more. 
+not pointing to master any more.
 That is what Git means by a 'detached HEAD' state and advises us that if we want to make a commit
-now, we should create a new branch to retain these commits. 
+now, we should create a new branch to retain these commits.
 
 ![Checking out a previous commit - detached head](../fig/detached-head.svg)
 
@@ -253,55 +237,7 @@ $ git checkout master
 ```
 {: .language-bash}
 
-### Using tags as nicknames for commit identifiers
 
-Commit identifiers are long and cryptic. Git allows us to create tags, which
-act as easy-to-remember nicknames for commit identifiers.
-
-For example,
-
-```    
-$ git tag PAPER_STUB
-```
-{: .language-bash}
-
-We can list tags by doing:
-
-```    
-$ git tag
-```
-{: .language-bash}
-
-Now add the second paper to references.txt and commit the change:
-
-```    
-$ gedit common/references.txt	# Add second paper
-$ git add common/references.txt 
-$ git commit -m "Add Jones et al paper" common/references.txt
-```
-{: .language-bash}
-
-We can checkout our previous version using our tag instead of a commit
-identifier.
-
-```    
-$ git checkout PAPER_STUB
-```
-{: .language-bash}
-
-And return to the latest checkout,
-
-```    
-$ git checkout master
-```
-{: .language-bash}
-
-> ## Top tip: tag significant events 
-> When do you tag? Well, whenever you might want to get back to the exact
-> version you've been working on. For a paper, this might be a version that has
-> been submitted to an internal review, or has been submitted to a conference.
-> For code this might be when it's been submitted to review, or has been
-> released.
 {: .callout}
 
 > ## Where to create a Git repository?
@@ -310,7 +246,7 @@ $ git checkout master
 > track the contents of the 'inner' repository - things will get confusing!
 {: .callout}
 
-> ## Exercise: "bio" Repository 
+> ## Exercise: "bio" Repository
 >
 > - Create a new Git repository on your computer called "bio"
 > - Be sure not to create your new repo within the 'papers' repo (see above)
@@ -343,13 +279,12 @@ $ git checkout master
 > > mkdir bio            # Create a new directory
 > > cd bio               # Navigate into the new directory
 > > git init             # Initialise a new repository
-> > gedit me.txt         # Create a file and write your biography
+> > nano me.txt         # Create a file and write your biography
 > > git add me.txt       # Add your biography file to the staging area
 > > git commit           # Commit your staged changes
-> > gedit me.txt         # Edit your file
+> > nano me.txt         # Edit your file
 > > git diff me.txt      # Display differences between your modified file and the last committed version
 > > ```
 > > {: .language-bash}
 > {: .solution}
 {: .challenge}
-
