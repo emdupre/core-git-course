@@ -23,7 +23,13 @@ if you do not already have one.
 {: .prereq}
 
 ## Resources
-[Workshop slideshow](https://slides.com/emdupre/git-course)
 
-[Git cheat sheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)
-(You may want to download a copy of this for reference during this workshop)
+You can check out the slideshow for this workshop [here](https://slides.com/emdupre/git-course).
+
+
+There are lots of other great resources out there !
+Here are a few of our favorites:
+
+* [A friendly introduction to GitHub](https://kirstiejane.github.io/friendly-github-intro/)
+* [Mozilla open leadership GitHub training](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/introducing-github-for-collaborative-work-and-version-control/)
+* [try.github.io](https://try.github.io/)
