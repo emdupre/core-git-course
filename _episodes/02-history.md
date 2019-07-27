@@ -1,6 +1,6 @@
 ---
 title: "Looking at history and differences"
-teaching: 25
+teaching: 20
 exercises: 0
 questions:
 - "How does Git store information?"
@@ -163,53 +163,6 @@ If we want to make a commit now, we should create a new branch to retain these c
 If we created a new commit without first creating a new branch, these commits would not overwrite any of our existing work, but they would not belong to any branch.
 In order to save this work, we would need to checkout a new branch.
 To discard any changes we make, we can just checkout master again.
-
-## Visualizing your own repository as a graph
-If we use `git log` with a couple of options, we can display the history as a graph,
-and decorate those commits corresponding to Git references (e.g. `HEAD`, `master`):
-
-~~~
-$ git log --graph --decorate --oneline
-~~~
-{: .language-bash}
-
-```
-* 6a48241 (HEAD, master) Reference second paper in introduction
-* ed26351 Reference Allen et al in introduction
-* 7446b1d Write introduction
-* 4f572d5 Add title and authors
-```
-{: .output}
-
-Notice how `HEAD` and `master` point to the same commit.
-Now checkout a previous commit again, and look at the graph again.
-We can display, this time specifying that we want to look at `--all` the history,
-rather than just up to the current commit.
-
-```
-$ git checkout HEAD~				# This syntax refers to the commit before HEAD
-$ git log --graph --decorate --oneline --all
-```
-{: .language-bash}
-
-```
-* 6a48241 (master) Reference second paper in introduction
-* ed26351 (HEAD) Reference Allen et al in introduction
-* 7446b1d Write introduction
-* 4f572d5 Add title and authors
-```
-{: .output}
-
-Notice how `HEAD` no longer points to the same commit as `master`.
-Let's return to the current version of the project by checking out `master` again.
-
-```
-$ git checkout master
-```
-{: .language-bash}
-
-
-{: .callout}
 
 > ## Where to create a Git repository?
 > Avoid creating a Git repository within another Git repository.
