@@ -83,36 +83,6 @@ $ git fetch
 ```
 {: .language-bash}
 
-We can visualize the remote branches in the same way as we did for local branches,
-so let's draw a network graph before going any further:
-
-```
-git log --graph --all --decorate --oneline
-```
-{: .language-bash}
-
-```
-* 7c239c3 (origin/master, origin/HEAD) Add figures
-* 0cc2a2d (HEAD -> master) Add results section
-* 3011ee0 Explain SMPS in methodology section
-*   6420699 Merge branch 'paperwjohn'
-|\  
-| * 7138785 (origin/paperwjohn) Write simulations section
-| * e695fa8 Add coauthor and update title
-* | e950911 Emphasise these are aircraft measurements
-|/  
-* 0b28b0a Add Haywood et al paper
-* 7cacba8 Cite ground based measurements
-* 56781f4 Reference Allen et al and add refs file
-* 5033467 Write introduction section
-* e08262e Add title and author
-```
-{: .output}
-
-As expected, we see that the `origin/master` branch is ahead of our local `master` branch
-by one commit  --- note that the history hasn't diverged,
-rather our local branch is missing the most recent commit on `origin/master`.
-
 We can now see what the differences are by doing,
 
 ```    
@@ -138,22 +108,6 @@ Updating 0cc2a2d..7c239c3
 Fast-forward
  journal.md | 4 ++++
  1 file changed, 4 insertions(+)
-```
-{: .output}
-
-If we look at the network graph again, all that has changed
-is that `master` now points to the same commit as `origin/master`.
-
-```
-git log --graph --all --decorate --oneline -4
-```
-{: .language-bash}
-
-```
-* 7c239c3 (HEAD -> master, origin/master, origin/HEAD) Add figures
-* 0cc2a2d Add results section
-* 3011ee0 Explain SMPS in methodology section
-*   6420699 Merge branch 'paperwjohn'
 ```
 {: .output}
 

@@ -23,7 +23,7 @@ allowing new people to make contributions is one of the keys to success in open 
 
 Leveraging the power of Git, GitHub provides a functionality called *Pull
 Requests*. Essentially it's "requesting the owner of the repository to pull in
-your contributions". As the owner of a repository, you may or may not accept them. But as a contributor, it provides a path to make contributions.
+your contributions". As the owner of a repository, you may or may not accept them. But as a contributor, it provides a path to engage with the community.
 
 ## The process
 

@@ -29,13 +29,10 @@ services such as [GitLab](https://about.gitlab.com/) and
 [Bitbucket](https://bitbucket.org),  supports a wealth of resources to support
 projects including:
 
-* Commit-triggered e-mails
 * Browsing code from within a web browser, with syntax highlighting
 * Software release management
 * Issue and bug tracking
 * Project management tools
-* Download software
-* Varying permissions for various groups of users
 
 ### GitHub for research
 GitHub **isn't** the only remote repositories provider. It is however very popular,
@@ -107,7 +104,7 @@ Now, on GitHub, we should see our code and if we click the `Commits` tab we shou
 our complete history of commits.  
 
 Our local repository is now available on GitHub. So, anywhere we can access
-GitHub, we can access our repository.
+GitHub, we can access our repository!
 
 
 ### Push other local branches to a remote repository
