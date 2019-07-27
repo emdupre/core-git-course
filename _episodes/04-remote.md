@@ -1,9 +1,9 @@
 ---
-title: "Working from multiple locations with a remote repository"
+title: "Getting started with GitHub"
 teaching: 25
 exercises: 0
 questions:
-- "What is a remote repository"
+- "What is a remote repository?"
 - "How can I use GitHub to work from multiple locations?"
 objectives:
 - "Understand how to set up remote repository"

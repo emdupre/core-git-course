@@ -52,7 +52,7 @@ your contributions". As the owner of a repository, you may or may not accept the
   They might also bring up ideas and/or challenges you haven't considered.
 
 ## After submitting your pull request
-Your PR may get merged just as it is :tada:
+Your PR may get merged just as it is.
 It's very normal, too, for there to be some discussion (on GitHub)
 and a request for further edits to be made.
 Given your changes haven't been merged get, you can make changes by adding

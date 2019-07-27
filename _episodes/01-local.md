@@ -4,7 +4,6 @@ teaching: 35
 exercises: 0
 questions:
 - "How do I get started with Git?"
-- "Where does Git store information?"
 objectives:
 - "Know how to set up a new Git repository."
 - "Understand how to start tracking files."

@@ -3,8 +3,7 @@ title: "Looking at history and differences"
 teaching: 25
 exercises: 0
 questions:
-- "How do I get started with Git?"
-- "Where does Git store information?"
+- "How does Git store information?"
 objectives:
 - "Be able to view history of changes to a repository"
 - "Be able to view differences between commits"
