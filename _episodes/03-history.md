@@ -1,20 +1,17 @@
 ---
 title: "Looking at history and differences"
-teaching: 30
-exercises: 5
+teaching: 25
+exercises: 0
 questions:
 - "How do I get started with Git?"
 - "Where does Git store information?"
 objectives:
 - "Be able to view history of changes to a repository"
 - "Be able to view differences between commits"
-- "Understand how and when to use tags to label commits"
 keypoints:
 - "`git log` shows the commit history"
 - "`git diff` displays differences between commits"
 - "`git checkout` recovers old versions of files"
-- "`HEAD` points to the commit you have checked out"
-- "`master` points to the tip of the `master` branch"
 ---
 
 
@@ -128,9 +125,6 @@ HEAD is now at 21cfbde... Add title and authors
 ~~~
 {: .output}
 
-This strange concept of the 'detached HEAD' is covered in the next section ...
-just bear with me for now!
-
 If we look at `journal.md` we'll see it's our very first version. And if we
 look at our directory,
 
@@ -164,36 +158,14 @@ common journal.md
 {: .output}
 So we can get any version of our files from any point in time. In other words,
 we can set up our working directory back to any stage it was when we made
-a commit.
+a commit!
 
-### The `HEAD` and `master` pointers
+If we want to make a commit now, we should create a new branch to retain these commits.
+If we created a new commit without first creating a new branch, these commits would not overwrite any of our existing work, but they would not belong to any branch.
+In order to save this work, we would need to checkout a new branch.
+To discard any changes we make, we can just checkout master again.
 
-*HEAD* is a reference, or pointer, which points to the branch at the commit where
-you currently are.
-We said previously that `master` is the default branch. But `master` is
-actually a pointer - that points to the tip of the `master` branch (the sequence
-of commits that is created by default by Git). You may think of `master` as two
-things:
-
-1. a pointer
-2. the default branch.
-
-Before we checked out one of the past commits, the *HEAD* pointer was pointing to
-`master` i.e. the most recent commit of the `master` branch.
-After checking out one of the past commits, *HEAD* was pointing to that commit i.e.
-not pointing to master any more.
-That is what Git means by a 'detached HEAD' state and advises us that if we want to make a commit
-now, we should create a new branch to retain these commits.
-
-![Checking out a previous commit - detached head](../fig/detached-head.svg)
-
-If we created a new commit without first creating a new branch, i.e. working from
-the 'detached HEAD' these commits would not overwrite any of our existing work,
-but they would not belong to any branch. In order to save this work, we would need
-to checkout a new branch. To discard any changes we make from the detached HEAD
-state, we can just checkout master again.
-
-## Visualising your own repository as a graph
+## Visualizing your own repository as a graph
 If we use `git log` with a couple of options, we can display the history as a graph,
 and decorate those commits corresponding to Git references (e.g. `HEAD`, `master`):
 
@@ -245,46 +217,3 @@ $ git checkout master
 > Nesting repositories in this way causes the 'outer' repository to
 > track the contents of the 'inner' repository - things will get confusing!
 {: .callout}
-
-> ## Exercise: "bio" Repository
->
-> - Create a new Git repository on your computer called "bio"
-> - Be sure not to create your new repo within the 'papers' repo (see above)
-> - Write a three-line biography for yourself in a file called **me.txt**
-> - Commit your changes
-> - Modify one line, add a fourth line, then save the file
-> - Display the differences between the updated file and the original
->
-> You may wish to use the faded example below as a guide
->
-> ```
-> cd ..                # Navigate out of the papers directory
->                      # Avoid creating a repo within a repo - confusion will arise!
-> mkdir ___            # Create a new directory called 'bio'
-> cd ___               # Navigate into the new directory
-> git ____             # Initialise a new repository
-> _____ me.txt         # Create a file and write your biography
-> git ___ me.txt       # Add your biography file to the staging area
-> git ______           # Commit your staged changes
-> _____ me.txt         # Edit your file
-> git ____ me.txt      # Display differences between your modified file and the last committed version
-> ```
-> {: .language-bash}
->
-> > ## Solution
-> >
-> > ```
-> > cd ..                # Navigate out of the papers directory
-> >                      # Avoid creating a repo within a repo - confusion will arise!
-> > mkdir bio            # Create a new directory
-> > cd bio               # Navigate into the new directory
-> > git init             # Initialise a new repository
-> > nano me.txt         # Create a file and write your biography
-> > git add me.txt       # Add your biography file to the staging area
-> > git commit           # Commit your staged changes
-> > nano me.txt         # Edit your file
-> > git diff me.txt      # Display differences between your modified file and the last committed version
-> > ```
-> > {: .language-bash}
-> {: .solution}
-{: .challenge}

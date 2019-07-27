@@ -1,6 +1,6 @@
 ---
 title: "Branching"
-teaching: 25
+teaching: 15
 exercises: 15
 questions:
 - "What is a branch?"

@@ -17,13 +17,13 @@ root: .
 > Windows users should use the `notepad` command instead, and set
 > notepad as the core editor when configuring Git.
 >
-> You will need a GitHub account for the afternoon session.
-> Please [sign up for an account](https://github.com/) this 
-> morning if you do not already have an account.
+> You will need a GitHub account for this session.
+> Please [sign up for an account](https://github.com/)
+if you do not already have one.
 {: .prereq}
 
 ## Resources
-[Workshop slideshow](http://slides.com/gcapes/git)
+[Workshop slideshow](https://slides.com/emdupre/git-course)
 
 [Git cheat sheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)
 (You may want to download a copy of this for reference during this workshop)
