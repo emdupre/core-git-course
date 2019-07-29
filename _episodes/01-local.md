@@ -17,7 +17,7 @@ keypoints:
 - "Always write a log message when committing changes"
 ---
 
-Version control is centred round the notion of a *repository* which holds your
+Version control is centered round the notion of a *repository* which holds your
 directories and files. We'll start by looking at a local repository. The local
 repository is set up in a directory in your local file system (local machine).
 For this we will use the command line interface.
