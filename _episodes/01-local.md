@@ -11,7 +11,9 @@ objectives:
 keypoints:
 - "`git init` initializes a new repository"
 - "`git status` shows the status of a repository"
-- "Files can be stored in a project’s `working directory` (which users see), the `staging area` (where the next commit is being built up) and the `local repository` (where commits are permanently recorded)"
+- "Files can be stored in a project’s `working directory` (which users see),
+  the `staging area` (where the next commit is being built up) and the
+  `local repository` (where commits are permanently recorded)"
 - "`git add` puts files in the staging area"
 - "`git commit` saves the staged content as a new commit in the local repository"
 - "Always write a log message when committing changes"
@@ -23,6 +25,7 @@ repository is set up in a directory in your local file system (local machine).
 For this we will use the command line interface.
 
 > ## Why are we using the command line?
+
 > There are lots of graphical user interfaces (GUIs) for using Git: both stand-alone
 > and integrated into text editors (e.g. VSCode).
 > We are deliberately not using a GUI for this course because:
@@ -34,6 +37,7 @@ For this we will use the command line interface.
 {: .callout}
 
 ## Setting up Git
+
 Git should already be installed on your machine.
 If you still need to install git, instructions are under [setup]({{ page.root }}/setup).
 
@@ -41,8 +45,8 @@ If you still need to install git, instructions are under [setup]({{ page.root }}
 
 Git records information not only about the changes to files,
 but also about _who_ made those changes.
-In collborations, this information is critical
-(e.g., do you want to know who rewrote your 'Conclusions' section?).
+In collborating, this information is often critical
+(e.g., you probably want to know who rewrote your 'Conclusions' section!).
 So, we need to tell Git about who we are:
 
 ~~~
@@ -150,6 +154,7 @@ $ nano journal.md						# Windows users: use notepad instead of nano (throughout 
 {: .language-bash}
 
 > ## Accessing files from the command line
+
 > In this lesson we create and modify text files using a command line interface
 > (e.g. terminal, Git Bash etc), mainly for convenience.
 > These are normal files which are also accessible from the file browser (e.g. Windows explorer),
@@ -188,6 +193,7 @@ tracking it - that is, any changes made to this file will not be recorded by
 Git.
 
 ## Add files to a Git repository
+
 To tell Git about the file, we will use the `git add` command:
 
 ~~~
