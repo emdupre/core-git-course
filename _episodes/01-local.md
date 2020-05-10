@@ -22,9 +22,9 @@ directories and files. We'll start by looking at a local repository. The local
 repository is set up in a directory in your local file system (local machine).
 For this we will use the command line interface.
 
-> ## Why use the command line?
+> ## Why are we using the command line?
 > There are lots of graphical user interfaces (GUIs) for using Git: both stand-alone
-> and integrated into IDEs (e.g. MATLAB, Rstudio).
+> and integrated into text editors (e.g. VSCode).
 > We are deliberately not using a GUI for this course because:
 >
 > * you will have a better understanding of how the git commands work
@@ -39,26 +39,29 @@ If you still need to install git, instructions are under [setup]({{ page.root }}
 
 ## Tell Git who we are
 
-As part of the information about changes made to files Git records who made
-those changes. In teamwork this information is often crucial (do you want to
-know who rewrote your 'Conclusions' section?). So, we need to tell Git about
-who we are (note that you need to enclose your name in quote marks):
+Git records information not only about the changes to files,
+but also about _who_ made those changes.
+In collborations, this information is critical
+(e.g., do you want to know who rewrote your 'Conclusions' section?).
+So, we need to tell Git about who we are:
 
 ~~~
-$ git config --global user.name "Your Name" 			# Put your quote marks around your name
+$ git config --global user.name "Your Name" 			# Put quotation marks around your name
 $ git config --global user.email yourname@yourplace.org
 ~~~
 {: .language-bash}
 
+Note that you need to enclose your name in quotation marks!
+
 ## Set a default editor
 
-When working with Git we will often need to provide some short but useful
-information. In order to enter this information we need an editor. We'll now
-tell Git which editor we want to be the default one (i.e. Git will always bring
-it up whenever it wants us to provide some information).
+When working with Git we will often need to provide some short but useful information.
+In order to enter this information, we need an editor.
+We'll now tell Git which editor we want to be the default
+(i.e. the one that Git will bring by default whenever it wants us to provide some information).
 
-You can choose any editor available on your system. For the purpose of this
-session we'll use *nano*:
+You can choose any editor available on your system.
+For the purpose of this session we'll assume you're on a Linux system and use *nano*:
 
 ~~~
 $ git config --global core.editor nano				# Linux users only.
@@ -103,8 +106,8 @@ with one of our colleagues.
 ```
 $ cd								# Switch to your home directory.
 $ pwd								# Print working directory (output should be /home/<username>)
-$ mkdir papers
-$ cd papers
+$ mkdir git-papers
+$ cd git-papers
 ```
 {: .language-bash}
 
@@ -116,11 +119,11 @@ $ git init
 ~~~
 {: .language-bash}
 ~~~
-Initialized empty Git repository in /home/user/papers/.git/
+Initialized empty Git repository in /home/user/git-papers/.git/
 ~~~
 {: .output}
 
-The directory "papers" is now our working directory.
+The directory "git-papers" is now our working directory.
 
  If we look in this directory, we'll find a `.git` directory:
 

@@ -30,6 +30,7 @@ You can check out the slideshow for this workshop [here](https://slides.com/emdu
 There are lots of other great resources out there !
 Here are a few of our favorites:
 
-* [A friendly introduction to GitHub](https://kirstiejane.github.io/friendly-github-intro/)
+* [Introduction to GitHub: A visual guide](https://zenodo.org/record/3369466)
 * [Mozilla open leadership GitHub training](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/introducing-github-for-collaborative-work-and-version-control/)
+* [Happy Git and GitHub for the useR](https://happygitwithr.com/)
 * [try.github.io](https://try.github.io/)

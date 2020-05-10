@@ -28,13 +28,13 @@ then we'll work in pairs for some real-life practice.
 First, let us leave our current local repository,
 
 ```
-$ cd ..  
+$ cd ..
 $ ls
 ```
 {: .language-bash}
 
 ```
-$ papers
+$ git-papers
 ```
 {: .output}
 
@@ -42,7 +42,7 @@ And let us clone our repository again, but this time specify the local
 directory name,
 
 ```
-$ git clone https://github.com/<USERNAME>/papers.git laptop_papers
+$ git clone https://github.com/<USERNAME>/git-papers.git laptop_papers
 Cloning into 'laptop_papers'...
 ```
 {: .language-bash}
@@ -56,7 +56,7 @@ $ ls
 {: .language-bash}
 
 ```
-$ papers laptop_papers
+$ git-papers laptop_papers
 ```
 {: .output}
 
@@ -65,8 +65,8 @@ of our repository - our two local versions, on our separate machines (we're
 still pretending!) and one on GitHub. So let's go into one of our clones, add a
 figures section, commit the file and push these changes to GitHub:
 
-```    
-$ cd papers 			# Switch to the 'papers' directory
+```
+$ cd git-papers 			# Switch to the 'git-papers' directory
 $ nano journal.md		# Add figures section
 $ git add journal.md
 $ git commit -m "Add figures"
@@ -77,7 +77,7 @@ $ git push
 Now let's change directory to our other repository and `fetch` the commits from our
 remote repository,
 
-```    
+```
 $ cd ../laptop_papers		# Switch to the other directory
 $ git fetch
 ```
@@ -85,7 +85,7 @@ $ git fetch
 
 We can now see what the differences are by doing,
 
-```    
+```
 $ git diff origin/master
 ```
 {: .language-bash}
@@ -98,7 +98,7 @@ We can then `merge` these changes into our current repository,
 but given the history hasn't diverged, we don't get a merge commit ---
 instead we get a *fast-forward* merge.
 
-```    
+```
 $ git merge origin/master
 ```
 {: .language-bash}
@@ -113,7 +113,7 @@ Fast-forward
 
 We can inspect the file to confirm that we have our changes.
 
-```    
+```
 $ cat journal.md
 ```
 {: .language-bash}
@@ -122,12 +122,12 @@ As a short-hand, we can do a `git pull` which does a `git fetch` then a `git mer
 Next we will update our repo using `pull`, but this time starting in the *laptop_papers* folder (you
 should already be in the *laptop_papers* folder). Let's write the conclusions:
 
-```    
+```
 $ nano journal.md		# Write Conclusions
 $ git add journal.md
 $ git commit -m "Write Conclusions" journal.md
 $ git push origin master
-$ cd ../papers			# Switch back to the papers directory
+$ cd ../git-papers			# Switch back to the git-papers directory
 $ git pull origin master	# Get changes from remote repository
 ```
 {: .language-bash}
@@ -136,7 +136,7 @@ This is the same scenario as before, so we get another fast-forward merge.
 
 We can check that we have our changes:
 
-```    
+```
 $ cat journal.md
 $ git log
 ```
@@ -156,11 +156,11 @@ $ git log
 ### Conflicts and how to resolve them
 
 Let's continue to pretend that our two local, cloned, repositories are hosted
-on two different machines. You should still be in the original *papers* folder.
+on two different machines. You should still be in the original *git-papers* folder.
 Add an affiliation for each author.
 Then push these changes to our remote repository:
 
-```    
+```
 $ nano journal.md		# Add author affiliations
 $ git add journal.md
 $ git commit -m "Add author affiliations"
@@ -174,7 +174,7 @@ and we want to change the order of the authors.
 The remote branch `origin/master` is now ahead of our local `master` branch on the laptop,
 because we haven't yet updated our local branch using `git pull`.
 
-```    
+```
 $ cd ../laptop_papers		# Switch directory to other copy of our repository
 $ nano journal.md		# Change order of the authors
 $ git add journal.md
@@ -183,9 +183,9 @@ $ git push origin master
 ```
 {: .language-bash}
 ```
-To https://github.com/<USERNAME>/papers.git
+To https://github.com/<USERNAME>/git-papers.git
  ! [rejected]        master -> master (fetch first)
-error: failed to push some refs to 'https://github.com/<USERNAME>/papers.git'
+error: failed to push some refs to 'https://github.com/<USERNAME>/git-papers.git'
 hint: Updates were rejected because the remote contains work that you do
 hint: not have locally. This is usually caused by another repository pushing
 hint: to the same ref. You may want to first integrate the remote changes
@@ -197,14 +197,14 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 Our push fails, as we've not yet pulled down our changes from our remote
 repository. Before pushing we should always pull, so let's do that...
 
-```    
+```
 $ git pull origin master
 ```
 {: .language-bash}
 
 and we get:
 
-```    
+```
 Auto-merging journal.md
 CONFLICT (content): Merge conflict in journal.md
 Automatic merge failed; fix conflicts and then commit the result.
@@ -229,10 +229,10 @@ we can see that our file is listed as *Unmerged* and if we look at
 ```
 <<<<<<< HEAD
 Author
-G Capes, J Smith
+E DuPre, J Smith
 =======
 author
-J Smith, G Capes
+J Smith, E DuPre
 >>>>>>> 1b55fe7f23a6411f99bf573bfb287937ecb647fc
 ```
 
@@ -262,7 +262,7 @@ We'll finish by pulling these changes into other copy of the repo,
 so both copies are up to date:
 
 ```
-$ cd ../papers			# Switch to 'papers' directory
+$ cd ../git-papers			# Switch to 'git-papers' directory
 $ git pull origin master	# Merge remote branch into local
 ```
 {: .language-bash}
@@ -278,7 +278,7 @@ $ git pull origin master	# Merge remote branch into local
 > a directory that is already a repository**!)
 >
 > Each of you should now make some changes to the files in the repository.
-> Commit the changes and then push them back to the remote repository.  
+> Commit the changes and then push them back to the remote repository.
 > Remember to pull changes before you push.
 {: .challenge}
 
@@ -319,7 +319,7 @@ $ git pull origin master	# Merge remote branch into local
 > Counting objects: 3, done.  remote:
 > Compressing objects: 100% (3/3), done.
 > remote: Total 3 (delta 0), reused 2 (delta 0) Unpacking objects: 100% (3/3), done.
-> From  https://github.com/gcapes/papers
+> From  https://github.com/emdupre/git-papers
 > 9e1705a..640210a master -> origin/master
 > * [new branch] their_branch -> origin/their_branch
 > ```
