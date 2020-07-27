@@ -1,7 +1,7 @@
 ---
 title: "Collaborating with a remote repository"
 teaching: 25
-exercises: 15
+exercises: 0
 questions:
 - "How do I update my local repository with changes from the remote?"
 - "How can I collaborate using Git?"
@@ -42,11 +42,10 @@ And let us clone our repository again, but this time specify the local
 directory name,
 
 ```
-$ git clone https://github.com/<USERNAME>/git-papers.git laptop_papers
-Cloning into 'laptop_papers'...
+$ git clone https://github.com/<USERNAME>/git-papers.git nha-papers
+Cloning into 'nha-papers'...
 ```
 {: .language-bash}
-
 
 So we now have two clones of our repository,
 
@@ -56,29 +55,30 @@ $ ls
 {: .language-bash}
 
 ```
-$ git-papers laptop_papers
+$ git-papers nha-papers
 ```
 {: .output}
 
-Let's pretend these clones are on two separate machines! So we have 3 versions
-of our repository - our two local versions, on our separate machines (we're
-still pretending!) and one on GitHub. So let's go into one of our clones, add a
-figures section, commit the file and push these changes to GitHub:
+Let's pretend these clones are on two separate machines!
+So then we have 3 versions of our repository:
+our two local versions on  separate machines (we're still pretending!)
+and one on GitHub.
+We can edit one of our clones, add a figures section,
+commit the file and push these changes to GitHub:
 
 ```
 $ cd git-papers 			# Switch to the 'git-papers' directory
-$ nano journal.md		# Add figures section
+$ vim journal.md		# Add figures section
 $ git add journal.md
 $ git commit -m "Add figures"
 $ git push
 ```
 {: .language-bash}
 
-Now let's change directory to our other repository and `fetch` the commits from our
-remote repository,
+Now let's change directory to our other clone and `fetch` the commits from our remote repository:
 
 ```
-$ cd ../laptop_papers		# Switch to the other directory
+$ cd ../nha-papers		# Switch to the other directory
 $ git fetch
 ```
 {: .language-bash}
@@ -90,13 +90,13 @@ $ git diff origin/master
 ```
 {: .language-bash}
 
-which compares our `master` branch with the `origin/master` branch
-which is the name of the `master` branch in `origin` which is the alias for our
-cloned repository, the one on GitHub.
+which compares our `master` branch with the `origin/master` branch.
+`origin/master` is the name of the `master` branch in `origin`
+(which is the alias for our cloned repository); that is, the one on GitHub.
 
 We can then `merge` these changes into our current repository,
-but given the history hasn't diverged, we don't get a merge commit ---
-instead we get a *fast-forward* merge.
+but given the history hasn't diverged, we don't need a merge commit.
+Instead we get a *fast-forward* merge.
 
 ```
 $ git merge origin/master
@@ -118,12 +118,15 @@ $ cat journal.md
 ```
 {: .language-bash}
 
-As a short-hand, we can do a `git pull` which does a `git fetch` then a `git merge`.
-Next we will update our repo using `pull`, but this time starting in the *laptop_papers* folder (you
-should already be in the *laptop_papers* folder). Let's write the conclusions:
+Note that, as a short-hand,
+we can do a `git pull` which does a `git fetch` followed by a `git merge`.
+Next we will update our repo using `git pull`,
+but this time starting with changes in the *nha-papers* folder
+(you should already be in the *nha-papers* folder!).
+Let's write the conclusions:
 
 ```
-$ nano journal.md		# Write Conclusions
+$ vim journal.md		# Write Conclusions
 $ git add journal.md
 $ git commit -m "Write Conclusions" journal.md
 $ git push origin master
@@ -132,7 +135,7 @@ $ git pull origin master	# Get changes from remote repository
 ```
 {: .language-bash}
 
-This is the same scenario as before, so we get another fast-forward merge.
+This is the same scenario as before, so we get another fast-forward merge!
 
 We can check that we have our changes:
 
@@ -156,9 +159,10 @@ $ git log
 ### Conflicts and how to resolve them
 
 Let's continue to pretend that our two local, cloned, repositories are hosted
-on two different machines. You should still be in the original *git-papers* folder.
-Add an affiliation for each author.
-Then push these changes to our remote repository:
+on two different machines.
+You should currently be in the original *git-papers* folder.
+Let's add an affiliation for each author,
+and then push these changes to our remote repository:
 
 ```
 $ nano journal.md		# Add author affiliations
@@ -168,15 +172,16 @@ $ git push origin master
 ```
 {: .language-bash}
 
-Now let us suppose, at a later date, we use our other repository (on the laptop)
+Now let us suppose, at a later date,
+we use our other repository (the `nha-papers` clone) on another machine,
 and we want to change the order of the authors.
 
-The remote branch `origin/master` is now ahead of our local `master` branch on the laptop,
+The remote branch `origin/master` is now ahead of our local `master` branch on the other machine,
 because we haven't yet updated our local branch using `git pull`.
 
 ```
-$ cd ../laptop_papers		# Switch directory to other copy of our repository
-$ nano journal.md		# Change order of the authors
+$ cd ../nha-papers		# Switch directory to other copy of our repository
+$ vim journal.md		# Change order of the authors
 $ git add journal.md
 $ git commit -m "Change the first author" journal.md
 $ git push origin master
@@ -195,7 +200,9 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 {: .output}
 
 Our push fails, as we've not yet pulled down our changes from our remote
-repository. Before pushing we should always pull, so let's do that...
+repository!
+But don't panic.
+Before pushing we should always pull, so let's do that...
 
 ```
 $ git pull origin master
@@ -211,12 +218,16 @@ Automatic merge failed; fix conflicts and then commit the result.
 ```
 {: .output}
 
-As we saw earlier, with the fetch and merge, `git pull` pulls down changes from the
-repository and tries to merge them. It does this on a file-by-file basis,
-merging files line by line. We get a **conflict** if a file has changes that
-affect the same lines and those changes can't be seamlessly merged. We had this
-situation before in the *branching* episode when we merged a *feature* branch into *master*.
-If we look at the status,
+As we saw earlier, with the fetch and merge,
+`git pull` pulls down changes from the
+repository and tries to merge them.
+It does this on a file-by-file basis,
+merging files line by line.
+We get a **conflict** if a file has changes that
+affect the same lines and those changes can't be seamlessly merged.
+We had this situation before in the *branching* episode,
+ when we merged a *feature* branch into *master*.
+If we look at the status:
 
 ```
 $ git status
@@ -244,19 +255,21 @@ merging the branches.
 We edit the file. Then commit our changes. Now, if we *push* ...
 
 ```
-$ nano journal.md		# Edit file to resolve merge conflict
+$ vim journal.md		# Edit file to resolve merge conflict
 $ git add journal.md		# Stage the file
 $ git commit			# Commit to mark the conflict as resolved
 $ git push origin master
 ```
 {: .language-bash}
 
-... all goes well. If we now go to GitHub and click on the "Overview" tab we can
-see where our repository diverged and came together again.
+... all goes well!
+If we now go to GitHub and click on the "Overview" tab,
+we can see where our repository diverged and came together again.
 
-This is where version control proves itself better than DropBox or GoogleDrive,
-this ability to merge text files line-by-line and highlight the conflicts
-between them, so no work is ever lost.
+This is where version control proves itself better than DropBox or GoogleDrive!
+This allows us to merge text files line-by-line and highlight the conflicts
+between them,
+so no work is ever lost.
 
 We'll finish by pulling these changes into other copy of the repo,
 so both copies are up to date:
@@ -266,76 +279,3 @@ $ cd ../git-papers			# Switch to 'git-papers' directory
 $ git pull origin master	# Merge remote branch into local
 ```
 {: .language-bash}
-
-> ## Collaborating on a remote repository
->
-> In this exercise you should work with a partner or a group of three.
-> One of you should give access to your remote repository on GitHub to
-> the others (by selecting `Settings -> Collaborators`).
->
-> Now those of you who are added as collaborators should clone the repository of
-> the first person on your machines. (make sure that you **don't clone into
-> a directory that is already a repository**!)
->
-> Each of you should now make some changes to the files in the repository.
-> Commit the changes and then push them back to the remote repository.
-> Remember to pull changes before you push.
-{: .challenge}
-
-> ## Creating branches and sharing them in the remote repository
->
-> Working with the same remote repository, each of you should create a new branch
-> locally and push it back to the remote repo.
->
-> Each person should use a different name for their local branch.
-> The following commands assume your new branch is called `my_branch`,
-> and your partner's branch is called `their_branch` ---
-> you should substitute the name of your new branch and your partner's new branch.
->
-> ```
-> $ git checkout -b my_branch		# Create and check out a new branch.
->				 	# Substitute your local branch name for 'my_branch'.
-> ```
-> {: .language-bash}
->
-> Now create/edit a file, and then commit your changes.
->
-> ```
-> $ git push origin my_branch		# Push your new branch to remote repo.
-> ```
-> {: .language-bash}
->
-> The other person should check out local copies of the branches created by others
-> (so eventually everybody should have the same number of branches as the remote
-> repository).
->
-> To fetch new branches from the remote repository (into your local `.git` database):
->
-> ```
-> $ git fetch origin
-> ```
-> {: .language-bash}
-> ```
-> Counting objects: 3, done.  remote:
-> Compressing objects: 100% (3/3), done.
-> remote: Total 3 (delta 0), reused 2 (delta 0) Unpacking objects: 100% (3/3), done.
-> From  https://github.com/emdupre/git-papers
-> 9e1705a..640210a master -> origin/master
-> * [new branch] their_branch -> origin/their_branch
-> ```
-> {: .output}
->
-> Your local repository should now contain all the branches from the remote repository,
-> but the `fetch` command doesn't actually update your local branches.
->
-> The next step is to check out a new branch locally to track the new remote branch.
->
-> ```
-> $ git checkout their_branch
-> ```
-> {: .language-bash}
-> ```
-> Branch their_branch set up to track remote branch their_branch from origin.
-> Switched to a new branch 'their_branch'
-> ```
-> {: .output}

@@ -21,7 +21,7 @@ Correct it, save the file but do not commit it yet.
 We can review the changes that we made using:
 
 ~~~
-$ nano journal.md		# Add second reference to introduction
+$ vim journal.md		# Add second reference to introduction
 $ git diff journal.md		# View changes to file
 ~~~
 {: .language-bash}
@@ -29,13 +29,13 @@ $ git diff journal.md		# View changes to file
 This shows the difference between the latest copy in the repository and the
 unstaged changes we have made.
 
-* `-` means a line was deleted.  
-* `+` means a line was added.  
+* `-` means a line was deleted.
+* `+` means a line was added.
 * Note that a line that has been edited is shown as a removal of the old line and an
 addition of the updated line.
 
-Looking at differences between commits is one of the most common activities.
-The `git diff` command itself has a number of [useful
+Looking at differences between commits is very useful!
+Note that the `git diff` command itself has a number of [useful
 options](http://git-scm.com/docs/git-diff.html).
 
 Now commit the change we made by adding the second reference:
@@ -57,13 +57,13 @@ $ git log
 
 ```
 commit 4dd7f5c948fdc11814041927e2c419283f5fe84c
-Author: Your Name <your.name@manchester.ac.uk>
+Author: Your Name <your.name@yourplace.org>
 Date:   Mon Jun 26 10:21:48 2017 +0100
 
     Write introduction
 
 commit c38d2243df9ad41eec57678841d462af93a2d4a5
-Author: Your Name <your.name@manchester.ac.uk>
+Author: Your Name <your.name@yourplace.org>
 Date:   Mon Jun 26 10:14:30 2017 +0100
 
     Add author and title
@@ -137,7 +137,7 @@ journal.md
 {: .output}
 
 then we see that our `common` directory is gone. But, rest easy, while it's
-gone from our working directory, it's still in our repository. We can jump back
+gone from our working directory, it's still in our repository! We can jump back
 to the latest commit by doing:
 
 ~~~

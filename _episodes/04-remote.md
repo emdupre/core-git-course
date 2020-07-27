@@ -49,8 +49,7 @@ such as making code citable!
 
 Let's get back to our tutorial. We'll first need a GitHub account.
 
-[Sign up](https://GitHub.com) or if you already have an account [sign
-in](https://GitHub.com).
+[Sign up](https://GitHub.com) or [sign in](https://GitHub.com) if you already have an account.
 
 ### Create a new repository
 
@@ -64,22 +63,20 @@ Now, we can create a repository on GitHub,
 * Click **Create Repository**
 
 You'll get a page with new information about your repository. We already have
-our local repository and we will be *pushing* it to GitHub, so this is the
-option we will use:
+our local repository and we will be *pushing* it to GitHub,
+so we can do the following:
 
 ```
 $ git remote add origin https://github.com/<USERNAME>/git-papers.git
-$ git push -u origin master
 ```
 {: .language-bash}
 
-The first line sets up an alias `origin`, to correspond to the URL of our
-new repository on GitHub.
-
+This line sets up an alias `origin`,
+to correspond to the URL of our new repository on GitHub.
 
 ### Push locally tracked files to a remote repository
 
-Now copy and paste the second line,
+Now we can execute the following:
 
 ```
 $ git push -u origin master
@@ -97,15 +94,14 @@ Branch master set up to track remote branch master from origin.
 ```
 {: .output}
 
-This **pushes** our `master` branch to the remote repository, named via the alias
-`origin` and creates a new `master` branch in the remote repository.
+This **pushes** our `master` branch to the remote repository, (named via the alias `origin`) and creates a new `master` branch in the remote repository.
 
-Now, on GitHub, we should see our code and if we click the `Commits` tab we should see
-our complete history of commits.
+Now, on GitHub, we should see our code,
+and if we click the `Commits` tab we should see our complete history of commits.
 
-Our local repository is now available on GitHub. So, anywhere we can access
-GitHub, we can access our repository!
-
+Our local repository is now available on GitHub.
+This means that anywhere we can access GitHub,
+we can access our repository!
 
 ### Push other local branches to a remote repository
 
@@ -138,8 +134,9 @@ $ git branch -a
 
 ### Cloning a remote repository
 
-Now, let's do something drastic! (but before that step, **make sure that you
-pushed all your local branches into the remote repository**)
+Now, let's do something drastic!
+But before that step,
+**make sure that you pushed all your local branches into the remote repository!**
 
 ```
 $ cd ..
@@ -147,8 +144,9 @@ $ rm -rf git-papers
 ```
 {: .language-bash}
 
-Gulp! We've just wiped our local repository! But, as we've a copy on GitHub we
-can just copy, or `git clone` that,
+Gulp! We've just wiped our local repository!
+But, because we've pushed to GitHub, we have still have a copy!
+We can just copy the repository down using `git clone`:
 
 ```
 $ git clone https://github.com/<USERNAME>/git-papers.git
@@ -191,19 +189,19 @@ $ git checkout paperWJohn			# Check out the paperWJohn branch
 
 ### Push changes to a remote repository
 
-We can use our cloned repository just as if it was a local repository so let's
-make some changes to our files and commit these.
+We can use our cloned repository just as if it were the original, local repository !
+So, let's make some changes to our files and commit these.
 
 ```
 $ git checkout master				# We'll continue working on the master branch
-$ nano journal.md				# Add results section
+$ vim journal.md				# Add results section
 $ git add journal.md				# Stage changes
 $ git commit
 ```
 {: .language-bash}
 
-Having done that, how do we send our changes back to the remote repository? We
-can do this by *pushing* our changes,
+Having done that, how do we send our changes back to the remote repository?
+We can do this by *pushing* our changes:
 
 ```
 $ git push origin master
@@ -213,7 +211,8 @@ $ git push origin master
 If we now check our GitHub page we should be able to see our new changes under
 the *Commit* tab.
 
-To see all remote repositories (we can have multiple!) type:
+To see all configured remotes for this repository (we can have multiple!),
+type:
 
 ```
 $ git remote -v

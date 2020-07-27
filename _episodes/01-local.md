@@ -38,8 +38,8 @@ For this we will use the command line interface.
 
 ## Setting up Git
 
-Git should already be installed on your machine.
-If you still need to install git, instructions are under [setup]({{ page.root }}/setup).
+If you're using the course JupyterHub, git should already be installed.
+If you need to install git locally, instructions are under [setup]({{ page.root }}/setup).
 
 ## Tell Git who we are
 
@@ -65,12 +65,10 @@ We'll now tell Git which editor we want to be the default
 (i.e. the one that Git will bring by default whenever it wants us to provide some information).
 
 You can choose any editor available on your system.
-For the purpose of this session we'll assume you're on a Linux system and use *nano*:
+For the purpose of this session we'll assume you're on the course JupyterHub and use *vim*:
 
 ~~~
-$ git config --global core.editor nano				# Linux users only.
-								# Windows users should use notepad: see below.
-								# Mac users should use TextEdit: see below.
+$ git config --global core.editor vim
 ~~~
 {: .language-bash}
 
@@ -89,12 +87,13 @@ directory, we'll see a `.gitconfig` file,
 ~~~
 $ cat ~/.gitconfig
     [user] name = Your Name email = yourname@yourplace.org
-    [core] editor = nano
+    [core] editor = vim
 ~~~
 {: .language-bash}
 
 **These global configuration settings will apply to any new Git repository
-you create on your computer.**
+you create on the course JupyterHub.**
+If you are executing this tutorial locally, these settings would similarly persist over time;
 i.e. the `--global` commands above are only required once per computer.
 
 ---
@@ -109,7 +108,7 @@ with one of our colleagues.
 
 ```
 $ cd								# Switch to your home directory.
-$ pwd								# Print working directory (output should be /home/<username>)
+$ pwd								# Print working directory (output should be /home/jovyan)
 $ mkdir git-papers
 $ cd git-papers
 ```
@@ -148,7 +147,7 @@ Now, we'll create a file. Let's say we're going to write a journal paper, so
 we will start by adding the author names and a title, then save the file.
 
 ~~~
-$ nano journal.md						# Windows users: use notepad instead of nano (throughout this course)
+$ vim journal.md
 # Add author names and paper title
 ~~~
 {: .language-bash}
@@ -157,7 +156,8 @@ $ nano journal.md						# Windows users: use notepad instead of nano (throughout 
 
 > In this lesson we create and modify text files using a command line interface
 > (e.g. terminal, Git Bash etc), mainly for convenience.
-> These are normal files which are also accessible from the file browser (e.g. Windows explorer),
+> JupyterHub also contains a native text editor that we can use to edit these files.
+> That is because these are normal files which are also accessible from the file browser on any operating system (e.g. Windows explorer),
 > and by other programs.
 {: .callout}
 
@@ -184,8 +184,8 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 Information about what Git knows about the directory is displayed. We are on
 the `master` branch, which is the default branch in a Git repository
-(one way to think of branches is like parallel versions of the project - more
-on branches later).
+(one way to think of branches is like parallel versions of the project.
+Don't worry -- we'll talk more about branches later).
 
 For now, the important bit of information is that our file is listed as
 **Untracked** which means it is in our working directory but Git is not
@@ -233,7 +233,7 @@ we need to  **commit** it:
 ~~~
 $ git commit
 # Type a commit message: "Add title and authors"
-# Save the commit message and close your text editor (nano, notepad etc.)
+# Save the commit message and close your text editor (vim, notepad etc.)
 ~~~
 {: .language-bash}
 
@@ -323,14 +323,14 @@ want to reuse:
 
 ~~~
 $ mkdir common
-$ nano common/references.txt					# Add a reference
+$ vim common/references.txt					# Add a reference
 ~~~
 {: .language-bash}
 
 We will also add a citation in our introduction section (in journal.md).
 
 ~~~
-$ nano journal.md 						# Use reference in introduction
+$ vim journal.md 						# Use reference in introduction
 ~~~
 {: .language-bash}
 

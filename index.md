@@ -9,25 +9,30 @@ root: .
 > Some previous experience with the shell is expected,
 > *but is not mandatory*.
 >
+> We expect that participants will execute this lesson on the
+> NeuroHackademy JupyterHub (hub.neurohackademy.com).
+>
+> If instead you'd like to execute it locally, you can use your
+> local unix shell (either natively on Mac & Linux or under WSL on Windows).
+>
 > Alternatively, this course can be followed on Windows using
 > Git Bash.
 > All of the commands shown will work on Windows using Git Bash,
-> with the exception of the `nano` command.
-> nano is a common text editor on Linux:
+> with the exception of the `vim` command.
+> vim is a common text editor on Linux:
 > Windows users should use the `notepad` command instead, and set
 > notepad as the core editor when configuring Git.
 >
 > You will need a GitHub account for this session.
 > Please [sign up for an account](https://github.com/)
-if you do not already have one.
+> if you do not already have one.
 {: .prereq}
 
 ## Resources
 
-You can check out the slideshow for this workshop [here](https://slides.com/emdupre/git-course).
+You can check out the slides for this workshop [here](https://slides.com/emdupre/git-course).
 
-
-There are lots of other great resources out there !
+Note that there are lots of other great resources out there !
 Here are a few of our favorites:
 
 * [Introduction to GitHub: A visual guide](https://zenodo.org/record/3369466)
