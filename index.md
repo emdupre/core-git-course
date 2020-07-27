@@ -10,7 +10,7 @@ root: .
 > *but is not mandatory*.
 >
 > We expect that participants will execute this lesson on the
-> NeuroHackademy JupyterHub (hub.neurohackademy.com).
+> NeuroHackademy JupyterHub (hub.neurohackademy.org).
 >
 > If instead you'd like to execute it locally, you can use your
 > local unix shell (either natively on Mac & Linux or under WSL on Windows).
