@@ -165,7 +165,7 @@ Let's add an affiliation for each author,
 and then push these changes to our remote repository:
 
 ```
-$ nano journal.md		# Add author affiliations
+$ vim journal.md		# Add author affiliations
 $ git add journal.md
 $ git commit -m "Add author affiliations"
 $ git push origin master

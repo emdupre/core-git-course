@@ -275,7 +275,7 @@ Now we will work a bit further on our *journal.md* file by writing the introduct
 section.
 
 ```
-$ nano journal.md
+$ vim journal.md
 # Write introduction section
 ```
 {: .language-bash}
