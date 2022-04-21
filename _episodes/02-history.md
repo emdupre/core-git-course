@@ -141,7 +141,7 @@ gone from our working directory, it's still in our repository! We can jump back
 to the latest commit by doing:
 
 ~~~
-$ git checkout master
+$ git checkout main
 ~~~
 {: .language-bash}
 
@@ -162,7 +162,7 @@ a commit!
 If we want to make a commit now, we should create a new branch to retain these commits.
 If we created a new commit without first creating a new branch, these commits would not overwrite any of our existing work, but they would not belong to any branch.
 In order to save this work, we would need to checkout a new branch.
-To discard any changes we make, we can just checkout master again.
+To discard any changes we make, we can just checkout main again.
 
 > ## Where to create a Git repository?
 > Avoid creating a Git repository within another Git repository.

@@ -143,14 +143,6 @@ accidentally delete this directory!
 ## Tracking files with a git repository
 
 Now, we'll create a file.
-Let's say we're going to write a journal paper, so
-we will start by adding the author names and a title, then save the file.
-
-~~~
-$ nano journal.md
-# Add author names and paper title
-~~~
-{: .language-bash}
 
 > ## Accessing files from the command line
 
@@ -160,6 +152,15 @@ $ nano journal.md
 > That is because these are normal files which are also accessible from the file browser on any operating system (e.g. Windows explorer),
 > and by other programs.
 {: .callout}
+
+Let's say we're going to write a journal paper, so
+we will start by adding the author names and a title, then save the file.
+
+~~~
+$ nano journal.md
+# Add author names and paper title
+~~~
+{: .language-bash}
 
 `git status` allows us to find out about the current status
 of files in the repository. So we can run,

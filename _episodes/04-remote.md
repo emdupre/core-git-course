@@ -79,7 +79,7 @@ to correspond to the URL of our new repository on GitHub.
 Now we can execute the following:
 
 ```
-$ git push -u origin master
+$ git push -u origin main
 ```
 {: .language-bash}
 ```
@@ -89,12 +89,12 @@ Compressing objects: 100% (28/28), done.
 Writing objects: 100% (32/32), 3.29 KiB | 0 bytes/s, done.
 Total 32 (delta 7), reused 0 (delta 0)
 To https://github.com/emdupre/git-papers.git
- * [new branch]      master -> master
-Branch master set up to track remote branch master from origin.
+ * [new branch]      main -> main
+Branch main set up to track remote branch main from origin.
 ```
 {: .output}
 
-This **pushes** our `master` branch to the remote repository, (named via the alias `origin`) and creates a new `master` branch in the remote repository.
+This **pushes** our `main` branch to the remote repository, (named via the alias `origin`) and creates a new `main` branch in the remote repository.
 
 Now, on GitHub, we should see our code,
 and if we click the `Commits` tab we should see our complete history of commits.
@@ -193,7 +193,7 @@ We can use our cloned repository just as if it were the original, local reposito
 So, let's make some changes to our files and commit these.
 
 ```
-$ git checkout master				# We'll continue working on the master branch
+$ git checkout main				# We'll continue working on the main branch
 $ nano journal.md				# Add results section
 $ git add journal.md				# Stage changes
 $ git commit
@@ -204,7 +204,7 @@ Having done that, how do we send our changes back to the remote repository?
 We can do this by *pushing* our changes:
 
 ```
-$ git push origin master
+$ git push origin main
 ```
 {: .language-bash}
 

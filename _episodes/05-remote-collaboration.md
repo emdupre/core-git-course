@@ -86,12 +86,12 @@ $ git fetch
 We can now see what the differences are by doing,
 
 ```
-$ git diff origin/master
+$ git diff origin/main
 ```
 {: .language-bash}
 
-which compares our `master` branch with the `origin/master` branch.
-`origin/master` is the name of the `master` branch in `origin`
+which compares our `main` branch with the `origin/main` branch.
+`origin/main` is the name of the `main` branch in `origin`
 (which is the alias for our cloned repository); that is, the one on GitHub.
 
 We can then `merge` these changes into our current repository,
@@ -99,7 +99,7 @@ but given the history hasn't diverged, we don't need a merge commit.
 Instead we get a *fast-forward* merge.
 
 ```
-$ git merge origin/master
+$ git merge origin/main
 ```
 {: .language-bash}
 
@@ -129,9 +129,9 @@ Let's write the conclusions:
 $ nano journal.md		# Write Conclusions
 $ git add journal.md
 $ git commit -m "Write Conclusions" journal.md
-$ git push origin master
+$ git push origin main
 $ cd ../git-papers			# Switch back to the git-papers directory
-$ git pull origin master	# Get changes from remote repository
+$ git pull origin main	# Get changes from remote repository
 ```
 {: .language-bash}
 
@@ -168,7 +168,7 @@ and then push these changes to our remote repository:
 $ nano journal.md		# Add author affiliations
 $ git add journal.md
 $ git commit -m "Add author affiliations"
-$ git push origin master
+$ git push origin main
 ```
 {: .language-bash}
 
@@ -176,7 +176,7 @@ Now let us suppose, at a later date,
 we use our other repository (the `core-talk-papers` clone) on another machine,
 and we want to change the order of the authors.
 
-The remote branch `origin/master` is now ahead of our local `master` branch on the other machine,
+The remote branch `origin/main` is now ahead of our local `main` branch on the other machine,
 because we haven't yet updated our local branch using `git pull`.
 
 ```
@@ -184,12 +184,12 @@ $ cd ../core-talk-papers		# Switch directory to other copy of our repository
 $ nano journal.md		# Change order of the authors
 $ git add journal.md
 $ git commit -m "Change the first author" journal.md
-$ git push origin master
+$ git push origin main
 ```
 {: .language-bash}
 ```
 To https://github.com/<USERNAME>/git-papers.git
- ! [rejected]        master -> master (fetch first)
+ ! [rejected]        main -> main (fetch first)
 error: failed to push some refs to 'https://github.com/<USERNAME>/git-papers.git'
 hint: Updates were rejected because the remote contains work that you do
 hint: not have locally. This is usually caused by another repository pushing
@@ -205,7 +205,7 @@ But don't panic.
 Before pushing we should always pull, so let's do that...
 
 ```
-$ git pull origin master
+$ git pull origin main
 ```
 {: .language-bash}
 
@@ -226,7 +226,7 @@ merging files line by line.
 We get a **conflict** if a file has changes that
 affect the same lines and those changes can't be seamlessly merged.
 We had this situation before in the *branching* episode,
- when we merged a *feature* branch into *master*.
+ when we merged a *feature* branch into *main*.
 If we look at the status:
 
 ```
@@ -258,7 +258,7 @@ We edit the file. Then commit our changes. Now, if we *push* ...
 $ nano journal.md		# Edit file to resolve merge conflict
 $ git add journal.md		# Stage the file
 $ git commit			# Commit to mark the conflict as resolved
-$ git push origin master
+$ git push origin main
 ```
 {: .language-bash}
 
@@ -276,6 +276,6 @@ so both copies are up to date:
 
 ```
 $ cd ../git-papers			# Switch to 'git-papers' directory
-$ git pull origin master	# Merge remote branch into local
+$ git pull origin main	# Merge remote branch into local
 ```
 {: .language-bash}
