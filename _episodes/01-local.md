@@ -148,8 +148,7 @@ Now, we'll create a file.
 
 > In this lesson we create and modify text files using a command line interface
 > (e.g. terminal, Git Bash etc), mainly for convenience.
-> JupyterHub also contains a native text editor that we can use to edit these files.
-> That is because these are normal files which are also accessible from the file browser on any operating system (e.g. Windows explorer),
+> These are normal files which are also accessible from the file browser on any operating system (e.g. Windows explorer),
 > and by other programs.
 {: .callout}
 
