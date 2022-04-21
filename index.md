@@ -5,15 +5,12 @@ root: .
 **This course is based on materials by [Software Carpentry](http://www.software-carpentry.org)**
 
 > ## Prerequisites
-> In this lesson we use Git from the Unix Shell.
+> In this lesson we use git from the Unix Shell.
 > Some previous experience with the shell is expected,
 > *but is not mandatory*.
 >
-> We expect that participants will execute this lesson on the
-> NeuroHackademy JupyterHub (hub.neurohackademy.org).
->
-> If instead you'd like to execute it locally, you can use your
-> local unix shell (either natively on Mac & Linux or under WSL on Windows).
+> We expect participants to execute this content locally using their
+> unix shell (either natively on Mac & Linux or under WSL on Windows).
 >
 > Alternatively, this course can be followed on Windows using
 > Git Bash.
