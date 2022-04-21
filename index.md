@@ -5,7 +5,7 @@ root: .
 **This course is based on materials by [Software Carpentry](http://www.software-carpentry.org)**
 
 > ## Prerequisites
-> In this lesson we use git from the Unix Shell.
+> In this lesson we will use git from the Unix Shell.
 > Some previous experience with the shell is expected,
 > *but is not mandatory*.
 >
