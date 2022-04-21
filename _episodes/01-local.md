@@ -36,18 +36,17 @@ For this we will use the command line interface.
 > * you will be able to use any GUI, rather than just the one you have learned
 {: .callout}
 
-## Setting up Git
+## Setting up git
 
-If you're using the course JupyterHub, git should already be installed.
 If you need to install git locally, instructions are under [setup]({{ page.root }}/setup).
 
-## Tell Git who we are
+## Tell git who we are
 
-Git records information not only about the changes to files,
+git records information not only about the changes to files,
 but also about _who_ made those changes.
-In collborating, this information is often critical
+In collaborating, this information is often critical
 (e.g., you probably want to know who rewrote your 'Conclusions' section!).
-So, we need to tell Git about who we are:
+So, we need to tell git about who we are:
 
 ~~~
 $ git config --global user.name "Your Name" 			# Put quotation marks around your name
@@ -59,46 +58,45 @@ Note that you need to enclose your name in quotation marks!
 
 ## Set a default editor
 
-When working with Git we will often need to provide some short but useful information.
+When working with git we will often need to provide some short but useful information.
 In order to enter this information, we need an editor.
-We'll now tell Git which editor we want to be the default
-(i.e. the one that Git will bring by default whenever it wants us to provide some information).
+We'll now tell git which editor we want to be the default
+(i.e. the one that git will bring by default whenever it wants us to provide some information).
 
 You can choose any editor available on your system.
-For the purpose of this session we'll assume you're on the course JupyterHub and use *vim*:
+For the purpose of this session we'll assume you're using *nano*:
 
 ~~~
-$ git config --global core.editor vim
+$ git config --global core.editor nano
 ~~~
 {: .language-bash}
 
 To set up alternative editors, follow the same notation e.g.
-`git config --global core.editor notepad`, `git config --global core.editor vi`,
+`git config --global core.editor notepad`, `git config --global core.editor vim`,
 `git config --global core.editor xemacs`.
 
-Mac users can use *TextEdit*: `git config --global core.editor 'open -W -n'`.
+Mac users can also use *TextEdit*: `git config --global core.editor 'open -W -n'`.
 
 ## Git's global configuration
 
-We can now preview (and edit, if necessary) Git's global configuration (such as
+We can now preview (and edit, if necessary) git's global configuration (such as
 our name and the default editor which we just set up). If we look in our home
 directory, we'll see a `.gitconfig` file,
 
 ~~~
 $ cat ~/.gitconfig
-    [user] name = Your Name email = yourname@yourplace.org
-    [core] editor = vim
+    [user] name = Your Name
+           email = yourname@yourplace.org
+    [core] editor = nano
 ~~~
 {: .language-bash}
 
-**These global configuration settings will apply to any new Git repository
-you create on the course JupyterHub.**
-If you are executing this tutorial locally, these settings would similarly persist over time;
+**These global configuration settings will apply to any new Git repository you create;**
 i.e. the `--global` commands above are only required once per computer.
 
 ---
 
-## Create a new repository with Git
+## Create a new repository with git
 
 We will be working with a simple example in this tutorial. It will be a paper
 that we will first start writing as a single author and then work on it further
@@ -108,13 +106,14 @@ with one of our colleagues.
 
 ```
 $ cd								# Switch to your home directory.
-$ pwd								# Print working directory (output should be /home/jovyan)
+$ pwd								# Print working directory
+$ ls git-papers                     # Should return an error that the directory does not exist.
 $ mkdir git-papers
 $ cd git-papers
 ```
 {: .language-bash}
 
-Now, we need to set up this directory up to be a Git repository (or "initiate
+Now, we need to set up this directory up to be a git repository (or "initiate
 the repository"):
 
 ~~~
@@ -143,11 +142,12 @@ accidentally delete this directory!
 
 ## Tracking files with a git repository
 
-Now, we'll create a file. Let's say we're going to write a journal paper, so
+Now, we'll create a file.
+Let's say we're going to write a journal paper, so
 we will start by adding the author names and a title, then save the file.
 
 ~~~
-$ vim journal.md
+$ nano journal.md
 # Add author names and paper title
 ~~~
 {: .language-bash}
@@ -169,7 +169,7 @@ $ git status
 ~~~
 {: .language-bash}
 ~~~
-On branch master
+On branch main
 
 Initial commit
 
@@ -183,7 +183,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 {: .output}
 
 Information about what Git knows about the directory is displayed. We are on
-the `master` branch, which is the default branch in a Git repository
+the `main` branch, which is the default branch in a Git repository
 (one way to think of branches is like parallel versions of the project.
 Don't worry -- we'll talk more about branches later).
 
@@ -192,9 +192,9 @@ For now, the important bit of information is that our file is listed as
 tracking it - that is, any changes made to this file will not be recorded by
 Git.
 
-## Add files to a Git repository
+## Add files to a git repository
 
-To tell Git about the file, we will use the `git add` command:
+To tell git about the file, we will use the `git add` command:
 
 ~~~
 $ git add journal.md
@@ -202,7 +202,7 @@ $ git status
 ~~~
 {: .language-bash}
 ~~~
-On branch master
+On branch main
 
 Initial commit
 
@@ -215,12 +215,12 @@ Changes to be committed:
 
 Now our file is listed underneath where it says **Changes to be committed**.
 
-`git add` is used for two purposes. Firstly, to tell Git that a given file
-should be tracked. Secondly, to put the file into the Git **staging area**
+`git add` is used for two purposes. Firstly, to tell git that a given file
+should be tracked. Secondly, to put the file into the git **staging area**
 which is also known as the *index* or the *cache*.
 
 The staging area can be viewed as a "loading dock", a place to hold files we have
-added, or changed, until we are ready to tell Git to record those changes in the
+added, or changed, until we are ready to tell git to record those changes in the
 repository.
 
 ![The staging area](../fig/git-staging-area.svg)
@@ -233,19 +233,19 @@ we need to  **commit** it:
 ~~~
 $ git commit
 # Type a commit message: "Add title and authors"
-# Save the commit message and close your text editor (vim, notepad etc.)
+# Save the commit message and close your text editor (nano, notepad etc.)
 ~~~
 {: .language-bash}
 
-Our default editor will now pop up. Why? Well, Git can automatically figure out
+Our default editor will now pop up. Why? Well, git can automatically figure out
 that directories and files are committed, and by whom (thanks to the information
 we provided before) and even, what changes were made, but it cannot figure out
 why. So we need to provide this in a commit message.
 
-If we save our commit message **and exit the editor**, Git will now commit our file.
+If we save our commit message **and exit the editor**, git will now commit our file.
 
 ~~~
-[master (root-commit) 21cfbde]
+[main (root-commit) 21cfbde]
 1 file changed, 2 insertions(+) Add title and authors
 create mode 100644 journal.md
 ~~~
@@ -262,7 +262,7 @@ $ git status
 ~~~
 {: .language-bash}
 ~~~
-On branch master
+On branch main
 nothing to commit, working directory clean
 ~~~
 {: .output}
@@ -275,7 +275,7 @@ Now we will work a bit further on our *journal.md* file by writing the introduct
 section.
 
 ```
-$ vim journal.md
+$ nano journal.md
 # Write introduction section
 ```
 {: .language-bash}
@@ -290,7 +290,7 @@ we see changes not staged for commit section and our file is marked as
 modified:
 
 ~~~
-On branch master
+On branch main
 Changes not staged for commit:
 (use "git add <file>..." to update what will be committed)
 (use "git checkout -- <file>..." to discard changes in working directory)
@@ -301,7 +301,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
 {: .output}
 
-This means that a file Git knows about has been modified by us but
+This means that a file git knows about has been modified by us but
 has not yet been committed. So we can add it to the staging area and then
 commit the changes:
 
@@ -323,20 +323,20 @@ want to reuse:
 
 ~~~
 $ mkdir common
-$ vim common/references.txt					# Add a reference
+$ nano common/references.txt					# Add a reference
 ~~~
 {: .language-bash}
 
 We will also add a citation in our introduction section (in journal.md).
 
 ~~~
-$ vim journal.md 						# Use reference in introduction
+$ nano journal.md 						# Use reference in introduction
 ~~~
 {: .language-bash}
 
 Now we need to record our work in the repository so we need to make a commit.
-First we tell Git to track the references.
-We can actually tell Git to track everything in the given sub-directory:
+First we tell git to track the references.
+We can actually tell git to track everything in the given sub-directory:
 
 ~~~
 $ git add common						# Track everything currently in the 'common' directory
@@ -353,9 +353,9 @@ that have been modified".
 $ git commit -am "Reference J Bloggs and add references file" 	# Add and commit all tracked files
 ~~~
 {: .language-bash}
-and Git will add, then commit, both the directory and the file.
+and git will add, then commit, both the directory and the file.
 
 In order to add all tracked files to the staging area, use `git commit -a`
 (which may be very useful if you edit e.g. 10 files and now you want to commit all of them).
 
-![The Git commit workflow](../fig/git-committing.svg)
+![The git commit workflow](../fig/git-committing.svg)

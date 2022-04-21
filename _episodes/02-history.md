@@ -3,7 +3,7 @@ title: "Looking at history and differences"
 teaching: 20
 exercises: 0
 questions:
-- "How does Git store information?"
+- "How does git store information?"
 objectives:
 - "Be able to view history of changes to a repository"
 - "Be able to view differences between commits"
@@ -21,7 +21,7 @@ Correct it, save the file but do not commit it yet.
 We can review the changes that we made using:
 
 ~~~
-$ vim journal.md		# Add second reference to introduction
+$ nano journal.md		# Add second reference to introduction
 $ git diff journal.md		# View changes to file
 ~~~
 {: .language-bash}
@@ -77,7 +77,7 @@ uniquely identifies the changes made in this commit
 - date
 - your commit message
 
-Git automatically assigns an identifier (e.g. 4dd7f5) to each commit
+git automatically assigns an identifier (e.g. 4dd7f5) to each commit
 made to the repository
 --- we refer to this as *COMMITID* in the code blocks below.
 In order to see the changes made between any earlier commit and our

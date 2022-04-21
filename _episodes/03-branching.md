@@ -88,7 +88,7 @@ $ git branch			# Double check which branch we are working on
 The * indicates which branch we're currently in. Now let's make the changes to the paper.
 
 ~~~
-$ vim journal.md		# Change title and add co-author
+$ nano journal.md		# Change title and add co-author
 $ git add journal.md
 $ git commit			# "Modify title and add John as co-author"
 ~~~

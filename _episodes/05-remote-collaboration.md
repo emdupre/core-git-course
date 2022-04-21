@@ -42,8 +42,8 @@ And let us clone our repository again, but this time specify the local
 directory name,
 
 ```
-$ git clone https://github.com/<USERNAME>/git-papers.git nha-papers
-Cloning into 'nha-papers'...
+$ git clone https://github.com/<USERNAME>/git-papers.git core-talk-papers
+Cloning into 'core-talk-papers'...
 ```
 {: .language-bash}
 
@@ -55,7 +55,7 @@ $ ls
 {: .language-bash}
 
 ```
-$ git-papers nha-papers
+$ git-papers core-talk-papers
 ```
 {: .output}
 
@@ -68,7 +68,7 @@ commit the file and push these changes to GitHub:
 
 ```
 $ cd git-papers 			# Switch to the 'git-papers' directory
-$ vim journal.md		# Add figures section
+$ nano journal.md		# Add figures section
 $ git add journal.md
 $ git commit -m "Add figures"
 $ git push
@@ -78,7 +78,7 @@ $ git push
 Now let's change directory to our other clone and `fetch` the commits from our remote repository:
 
 ```
-$ cd ../nha-papers		# Switch to the other directory
+$ cd ../core-talk-papers		# Switch to the other directory
 $ git fetch
 ```
 {: .language-bash}
@@ -121,12 +121,12 @@ $ cat journal.md
 Note that, as a short-hand,
 we can do a `git pull` which does a `git fetch` followed by a `git merge`.
 Next we will update our repo using `git pull`,
-but this time starting with changes in the *nha-papers* folder
-(you should already be in the *nha-papers* folder!).
+but this time starting with changes in the *core-talk-papers* folder
+(you should already be in the *core-talk-papers* folder!).
 Let's write the conclusions:
 
 ```
-$ vim journal.md		# Write Conclusions
+$ nano journal.md		# Write Conclusions
 $ git add journal.md
 $ git commit -m "Write Conclusions" journal.md
 $ git push origin master
@@ -165,7 +165,7 @@ Let's add an affiliation for each author,
 and then push these changes to our remote repository:
 
 ```
-$ vim journal.md		# Add author affiliations
+$ nano journal.md		# Add author affiliations
 $ git add journal.md
 $ git commit -m "Add author affiliations"
 $ git push origin master
@@ -173,15 +173,15 @@ $ git push origin master
 {: .language-bash}
 
 Now let us suppose, at a later date,
-we use our other repository (the `nha-papers` clone) on another machine,
+we use our other repository (the `core-talk-papers` clone) on another machine,
 and we want to change the order of the authors.
 
 The remote branch `origin/master` is now ahead of our local `master` branch on the other machine,
 because we haven't yet updated our local branch using `git pull`.
 
 ```
-$ cd ../nha-papers		# Switch directory to other copy of our repository
-$ vim journal.md		# Change order of the authors
+$ cd ../core-talk-papers		# Switch directory to other copy of our repository
+$ nano journal.md		# Change order of the authors
 $ git add journal.md
 $ git commit -m "Change the first author" journal.md
 $ git push origin master
@@ -255,7 +255,7 @@ merging the branches.
 We edit the file. Then commit our changes. Now, if we *push* ...
 
 ```
-$ vim journal.md		# Edit file to resolve merge conflict
+$ nano journal.md		# Edit file to resolve merge conflict
 $ git add journal.md		# Stage the file
 $ git commit			# Commit to mark the conflict as resolved
 $ git push origin master

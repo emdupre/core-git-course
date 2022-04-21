@@ -194,7 +194,7 @@ So, let's make some changes to our files and commit these.
 
 ```
 $ git checkout master				# We'll continue working on the master branch
-$ vim journal.md				# Add results section
+$ nano journal.md				# Add results section
 $ git add journal.md				# Stage changes
 $ git commit
 ```
