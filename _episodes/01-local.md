@@ -107,7 +107,7 @@ with one of our colleagues.
 ```
 $ cd								# Switch to your home directory.
 $ pwd								# Print working directory
-$ ls git-papers                     # Should return an error that the directory does not exist.
+$ ls git-papers								# Should return an error that the directory does not exist.
 $ mkdir git-papers
 $ cd git-papers
 ```
